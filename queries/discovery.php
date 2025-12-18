@@ -279,7 +279,7 @@ try {
         </form>
 
         <?php if ($rows): ?>
-        <h2>Results</h2>
+        <h2>Result\s</h2>
         <table>
             <tr>
                 <?php foreach (array_keys($rows[0]) as $col): ?>

@@ -1,0 +1,40 @@
+Download XAMPP
+https://www.apachefriends.org/download.html
+
+Or, connect to JHU server at dbase.cs.jhu.edu
+
+Start XAMPP server
+sudo /Applications/XAMPP/xamppfiles/bin/mysql.server start
+
+Your unzipped project folder should look like this
+spotify/
+│── index.php
+│── db.php
+│── schema.sql
+│── processing.sql
+│── queries/
+│     ├── artist_tracks.php
+│     ├── top_artists.php
+│     ├── albums_audio.php
+│     ├── trends.php
+│     ├── discovery.php
+│     └── similarity.php
+│── csv/
+      ├── tracks_features.csv
+      └── spotify_artist_data.csv
+
+Move this folder into /Applications/XAMPP/xamppfiles/htdocs/ on Mac or C:\xampp\htdocs\ on Windows
+
+In MySqlWorkbench:
+CREATE DATABASE spotify_db;
+
+Run schema.sql and processing.sql to create and populate the database
+
+If processing.sql gets interrupted, you can increase global max allowed packet size in MySql with a command like this:
+max_allowed_packet = 256M 
+You can run this up until the “querying” comment at line 325.
+Make sure Apache is up and running in order to access the interface on localhost. 
+
+Start XAMPP server and Apache
+Site should be live at http://localhost/spotify/
+
